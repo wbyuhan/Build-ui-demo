@@ -50,16 +50,13 @@ const AudioPlayer = ({ tracks }) => {
 
   const startTimer = () => {
     clearInterval(intervalRef.current);
-    intervalRef.current = setInterval(
-      () => {
-        if (audioRef.current.ended) {
-          toNextTrack();
-        } else {
-          setTrackProgress(audioRef.current.currentTime);
-        }
-      },
-      [1000]
-    );
+    intervalRef.current = setInterval(() => {
+      if (audioRef.current.ended) {
+        toNextTrack();
+      } else {
+        setTrackProgress(audioRef.current.currentTime);
+      }
+    }, 1000);
   };
 
   // 暂停/播放
